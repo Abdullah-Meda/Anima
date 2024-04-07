@@ -472,6 +472,9 @@ class AirLLMBaseModel(GenerationMixin):
                 for j, seq in enumerate(batch):
 
                     if layer_name == self.layer_names_dict['embed']:
+                        print(type(layer))
+                        print(layer)
+                        
                         batch[j] = layer(seq)
                     elif layer_name == self.layer_names_dict['norm']:
                         #batch[j] = layer(seq[torch.arange(n_seq), batch_eos[j]][:, None])
